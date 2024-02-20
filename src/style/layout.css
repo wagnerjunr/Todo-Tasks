@@ -1,0 +1,88 @@
+
+ .tasks{
+    display: flex; 
+    justify-content: center;
+    align-items: start;
+}  
+.sidebar{
+    background-color:#9f7aea;
+    height: 100vh;
+    width: 300px;
+}
+.list{
+    margin: 30px;
+    list-style: none;
+    color: white;
+    font-size: 1.2em;
+}
+li{
+    padding: 10px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between; 
+}
+.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.box_user{
+    text-align: center;
+    padding: 10px;
+}
+
+.conteudo{
+    width: 100vw;
+    margin: 20px 20px 0px 30px;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 300px;
+    grid-gap: 30px;
+    margin: 10px;
+}
+
+.grid-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow:5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    border-top: 8px solid;
+    border-color: #9f7aea;
+    border-radius: 10px;
+    padding: 20px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.task-title{
+    max-width: 250px;
+}
+
+.description{
+    text-align: start;
+    color: #9E9E9E;
+    max-height:150px;
+    overflow: auto; 
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.priority{
+    display: flex; 
+}
+
+.btn_delete{
+    cursor: pointer;
+}
+
