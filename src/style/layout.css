@@ -44,7 +44,7 @@ li{
     grid-auto-rows: 300px;
     grid-gap: 30px;
     margin: 10px;
-    height: 81vh;
+    height: 80vh;
     overflow-y: auto;
 }
 
