@@ -1,44 +1,73 @@
-
- .tasks{
-    display: flex; 
+.tasks {
+    display: flex;
     justify-content: center;
     align-items: start;
-}  
-.sidebar{
-    background-color:#9f7aea;
+}
+
+.sidebar {
+    background-color: #9f7aea;
     height: 100vh;
     width: 300px;
 }
+
 .list{
     margin: 30px;
     list-style: none;
     color: white;
     font-size: 1.2em;
 }
-li{
-    padding: 10px;
-}
-.navbar{
-    display: flex;
-    justify-content: space-between; 
-}
-.user{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-.box_user{
-    text-align: center;
+li {
     padding: 10px;
 }
 
-.conteudo{
+.navbar {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.navbar-drawer{
+    background-color: #9f7aea;
+    height: 100vh;
+    color: white;
+}
+.list-drawer{
+    list-style: none;
+    margin-left: 40px;
+    font-size: 1.2em;
+    margin-top: 30px;
+}
+.btn-drawer{
+    text-align: end;
+}
+.btn-drawer button{
+    padding: 0;
+    border: none;
+    margin-right: 30px;
+    scale: 1.5;
+    transition: all 300ms ease-out;
+    margin-top: 20px;
+}
+.btn-drawer button:hover{
+    scale: 1.8;
+    cursor: pointer;
+}
+
+.navbar-menu-open {
+    margin-top: 10px;
+    margin-left: 20px;
+    display: none;
+}
+
+.forms-tasks {
+    margin-top: 50px;
+}
+
+.conteudo {
     width: 100vw;
     margin: 20px 20px 0px 30px;
 }
 
-.grid-container{
+.grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-auto-rows: 300px;
@@ -46,46 +75,59 @@ li{
     margin: 10px;
     height: 80vh;
     overflow-y: auto;
+    margin-top: 50px;
 }
 
-.grid-item{
+.grid-item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow:5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
     border-top: 8px solid;
     border-color: #9f7aea;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
 }
-.title{
+
+.title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
     font-size: 18px;
 }
-.task-title{
+
+.task-title {
     max-width: 250px;
 }
 
-.description{
+.description {
     text-align: start;
     color: #9E9E9E;
-    max-height:150px;
-    overflow: auto; 
+    max-height: 150px;
+    overflow: auto;
 }
-.footer{
+
+.footer {
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
 }
-.priority{
-    display: flex; 
+
+.priority {
+    display: flex;
 }
 
-.btn_delete{
+.btn_delete {
     cursor: pointer;
 }
 
+@media(max-width:500px){
+    .sidebar{
+        display: none;
+    }
+    .navbar-menu-open{
+        display: block;
+    }
+}

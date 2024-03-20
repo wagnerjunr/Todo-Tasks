@@ -48,8 +48,8 @@ function Newtask() {
     }
 
     return (
-
-        <Form >
+        
+        <Form  className='forms-tasks'>
             <FormControl isRequired w={400} mb={3} >
                 <FormLabel>Task Title:</FormLabel>
                 <Input maxLength={40} onChange={onChangeText} type="text" name="title"  focusBorderColor='purple.400'placeholder='Task Title' />

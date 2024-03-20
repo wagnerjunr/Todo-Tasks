@@ -2,11 +2,11 @@ import { Icon } from '@chakra-ui/react';
 import { CalendarIcon, EditIcon,CopyIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom';
 
-function List() {
+function List(props) {
 
     return (
         <div >
-            <ul className='list'>
+            <ul className={props.drawer?'list-drawer':'list'}>
                 <li>
                     <Link to="/"> <Icon as={CalendarIcon}/> Dashboard</Link>
                 </li>

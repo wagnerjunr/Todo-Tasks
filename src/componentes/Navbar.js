@@ -1,17 +1,48 @@
-import { Heading,Box,Text,Button, HStack } from "@chakra-ui/react";
+import React, { useState } from 'react'
+import { Heading } from "@chakra-ui/react";
+import menu from './image/menu.png'
+import List from './List';
+
+// import component 👇
+import Drawer from 'react-modern-drawer'
+
+//import styles 👇
+import 'react-modern-drawer/dist/index.css'
+
 import '../style/layout.css'
 
-function Navbar(){
+function Navbar() {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleDrawer = () => {
+        setIsOpen((prevState) => !prevState)
+    }
+
     return (
-        <div className="navbar">
-            <Heading>Todo Tasks</Heading>
-            
-            <HStack className="user" spacing="20px">
-                <Box className = "box_user" bg = "purple.400" >M</Box>
-                <Text>WagnerAparecidojr@gmail.com</Text>
-                <Button bg = "purple.400" color = "white">Logout</Button>
-            </HStack>
-        </div>
+        <>
+            <Drawer
+                open={isOpen}
+                onClose={toggleDrawer}
+                direction='left'
+                className='navbar-drawer'
+            >
+                <div className='navbar-drawer'>
+                    <div className='btn-drawer'>
+                        <button onClick={toggleDrawer}>X</button>
+                    </div>
+                    <List drawer={'list-drawer'}></List>
+                </div>
+
+            </Drawer>
+
+            <div className="navbar">
+                <Heading>Todo Tasks</Heading>
+                <section onClick={toggleDrawer} className='navbar-menu-open' >
+                    <img src={menu} width={15}></img>
+                </section>
+            </div>
+        </>
     )
 }
 
