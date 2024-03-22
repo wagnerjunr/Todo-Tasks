@@ -9,9 +9,10 @@ function Edit() {
     const { id } = useParams();
     const navigateHome = useNavigate();
     const [task, setTask] = useState(null);
+    const url = 'https://api-fake-json-gdep.onrender.com/tasks'
 
     useEffect(() => {
-        fetch('http://localhost:3000/tasks/' + id)
+        fetch(`${url}/${id}`)
             .then((res) => {
                 return res.json();
             }).then((data) => {
@@ -19,6 +20,19 @@ function Edit() {
             })
     }, [])
 
+    function editTask() {
+        if (task) {
+            fetch(`${url}/${id}`, {
+                method: 'PUT',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(task)
+            }).then(() => {
+                console.log("Task Edit");
+                setTask(null);
+                return navigateHome("/");
+            })
+        }
+    }
 
     function backHomePage() {
         return navigateHome("/");
@@ -42,19 +56,6 @@ function Edit() {
         }
     }
 
-    function editTask() {
-        if (task) {
-            fetch('http://localhost:3000/tasks/' + id, {
-                method: 'PUT',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(task)
-            }).then(() => {
-                console.log("Task Edit");
-                setTask(null);
-                return navigateHome("/");
-            })
-        }
-    }
 
     if (task) {
         return (

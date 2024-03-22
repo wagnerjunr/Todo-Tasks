@@ -1,32 +1,14 @@
+import React, { useContext } from 'react'
+import { TodoTasks } from "../Context/Context";
+
 import { Icon } from "@chakra-ui/react";
 import { DeleteIcon, WarningIcon,ArrowBackIcon } from '@chakra-ui/icons'
 import { Tooltip } from '@chakra-ui/react'
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Historic() {
     
-    const tasks = useLoaderData();
-    const navigateHome = useNavigate();
-
-    function deleteTask(task) {
-        fetch('http://localhost:3000/tasks/' + task, {
-            method: 'DELETE'
-        }).then(() => {
-            console.log("Item delete");
-            return navigateHome("/historic");
-        })
-    }
-
-    function doneTask(task){
-       task.status = !task.status
-       fetch('http://localhost:3000/tasks/' + task.id, {
-        method: 'PUT',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(task)
-    }).then(() => {
-        return navigateHome("/historic");
-    })
-    }
+    const [tasks,deleteTask,doneTask] = useContext(TodoTasks);
 
     return (
 
@@ -43,8 +25,8 @@ function Historic() {
                     </div>
                     <hr></hr>
                     <footer className="footer">
-                        <Link onClick={()=>doneTask(task)}><Icon as={ArrowBackIcon}/>Recover Task</Link>
-                        <div onClick={() => deleteTask(task.id)} className="btn_delete"><Icon as={DeleteIcon} />Delete</div>
+                        <Link onClick={()=>doneTask(task,'/historic')}><Icon as={ArrowBackIcon}/>Recover Task</Link>
+                        <div onClick={() => deleteTask(task.id,'/historic')} className="btn_delete"><Icon as={DeleteIcon} />Delete</div>
                     </footer>
                 </div>
             ) : null
@@ -54,9 +36,6 @@ function Historic() {
     )
 }
 
-export const TaskLoader = async () => {
-    const res = await fetch('http://localhost:3000/tasks');
-    return await res.json();
-}
+
 
 export default Historic;

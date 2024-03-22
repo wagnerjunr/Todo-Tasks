@@ -8,6 +8,7 @@ function Newtask() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [checked, setChecked] = useState(false);
+    const url = 'https://api-fake-json-gdep.onrender.com/tasks'
     const navigateHome = useNavigate();
 
     function onChangeText(e) {
@@ -27,14 +28,12 @@ function Newtask() {
 
     function onClickSubmit(e) {
         e.preventDefault();
-        
         if(title){
-
             let task = new Item(title,description);
             if(checked){
                  task.priority = true;
             }
-            fetch('http://localhost:3000/tasks',{
+            fetch(url,{
                 method:'POST',
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(task)

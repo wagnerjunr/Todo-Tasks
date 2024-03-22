@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Dashboard, { TaskLoader } from './pages/Dashboard';
+import Dashboard from './pages/Dashboard';
 import Newtask from './pages/Newtask';
 import Edit from './pages/Edit';
 import Historic from './pages/Historic';
@@ -18,7 +18,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader:TaskLoader,
         element: <Dashboard/>
       },
       {
@@ -27,7 +26,6 @@ const router = createBrowserRouter([
       }, 
       {
         path:"historic",
-        loader:TaskLoader,
         element:<Historic/>
       }, 
        {
